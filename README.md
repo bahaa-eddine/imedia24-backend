@@ -14,3 +14,8 @@ These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 
+### Docker
+# Build Image
+docker build -t imedia24-gmbh .
+# Start container
+docker run -dp 3000:3000 imedia24-gmbh

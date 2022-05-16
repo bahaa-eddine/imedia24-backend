@@ -39,6 +39,9 @@ data class ProductEntity(
     val updatedAt: ZonedDateTime
 ){
 
+    constructor() :this(" "," ", "",BigDecimal.ZERO, 0,ZonedDateTime.now(),ZonedDateTime.now())
+
+
     fun toDto(): ProductResponse = ProductResponse(
         sku = this.sku,
         name = this.name,

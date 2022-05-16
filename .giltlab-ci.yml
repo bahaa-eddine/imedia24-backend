@@ -1,0 +1,23 @@
+image: java:8
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script: ./gradlew build
+  artifacts:
+    paths:
+      - build/libs/shop-0.0.1-SNAPSHOT.jar
+
+unitTests:
+  stage: test
+  script:
+    - ./gradlew test
+
+deploy-prod:
+  stage: deploy
+  script:
+    - echo "deploy ..."

@@ -36,8 +36,7 @@ class ProductController(private val productService: ProductService) {
         @RequestParam(name = "skus") skus: String
     ): ResponseEntity<List<ProductResponse>> {
         logger.info("Retrieving products")
-        val listSkus = skus.split(",");
-        val products = productService.findProductsBySku(listSkus)
+        val products = productService.findProductsBySku(skus)
         return if(products.isEmpty()) {
             ResponseEntity.notFound().build()
         } else {

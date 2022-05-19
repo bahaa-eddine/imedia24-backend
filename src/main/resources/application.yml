@@ -22,3 +22,8 @@ spring:
           batch_size: 1000
     hibernate:
       ddl-auto: update
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method

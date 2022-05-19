@@ -13,9 +13,10 @@ class ProductService(private val productRepository: ProductRepository) {
 
     fun findProductBySku(sku: String): ProductResponse? = productRepository.findBySku(sku)?.toProductResponse()
 
-    fun findProductsBySku(skus: List<String>?): List<ProductResponse> {
+    fun findProductsBySku(skus: String): List<ProductResponse> {
+        val listSkus = skus.split(",");
         val products = mutableListOf<ProductResponse>()
-        skus?.forEach{
+        listSkus?.forEach{
             productRepository.findBySku(it)?.let { product -> products.add(product.toProductResponse()) }
         }
         return products;
